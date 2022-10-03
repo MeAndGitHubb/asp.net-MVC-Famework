@@ -1,0 +1,17 @@
+﻿@model IEnumerable <MyClass.Models.Category>
+
+<div class="card-sl py-4">
+    <div class="">
+        DANH MỤC SẢN PHẨM
+    </div>
+    
+    <ul class="list-group  mb-2">
+        @foreach (var category in Model)
+        {
+            <div class="py-3">
+                <a href="~/@category.Slug" class="card-button1 py-3">@category.Name</a>
+            </div>
+        }
+    </ul>
+
+</div>

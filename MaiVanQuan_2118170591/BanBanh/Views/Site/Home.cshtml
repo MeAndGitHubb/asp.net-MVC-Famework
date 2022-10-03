@@ -1,0 +1,32 @@
+﻿@model IEnumerable<MyClass.Models.Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+
+@section header {
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/public/plugins/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link href="~/public/dist/css/adminlte.min.css" rel="stylesheet" />
+    <link href="~/Public/css/LayoutSite.css" rel="stylesheet" />
+    <link href="~/Public/css/LayoutCategory.css" rel="stylesheet" />
+}
+
+<div class="container">
+    <div class="row">
+        @Html.Action("Slideshow", "Module")
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="row">
+            @foreach (var category in Model)
+            {
+                @Html.Action("HomeProduct", "Site", new { @id = category.Id })
+
+            }
+    </div>
+
+</div>

@@ -1,0 +1,124 @@
+﻿@model MyClass.Models.Post
+
+@{
+    ViewBag.Title = "xóa bài viết";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="content-wrapper py-2">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><strong class="text-danger ">@ViewBag.Title</strong></h3>
+                <div class="card-tools">
+                    <a class="btn btn-sm btn-success" href="@Url.Action("Trash", "Post")">
+                        <i class="fas fa-arrow-left" aria-hidden="true"></i>trở lại
+                    </a>
+                    <button type="submit" class="btn btn-info btn-sm">
+                        <i class="fas fa-trash-alt" aria-hidden="true"></i>
+                        Thực hiện xóa
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table">
+
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Title)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Title)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Slug)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Slug)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Topid)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Topid)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Detail)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Detail)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.MetaKey)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.MetaKey)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.MetaDesc)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.MetaDesc)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Created_By)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Created_By)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Updated_By)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Updated_By)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Created_At)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Created_At)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Updated_At)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Updated_At)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Status)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Status)
+                        </dd>
+
+                    </dl>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+}

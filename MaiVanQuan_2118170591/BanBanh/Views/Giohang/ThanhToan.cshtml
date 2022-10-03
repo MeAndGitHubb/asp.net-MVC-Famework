@@ -1,0 +1,160 @@
+﻿@model IEnumerable<CartItem>
+@{
+    ViewBag.Title = "ThanhToan";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+@{
+    var user = ViewBag.user;
+}
+<script src="~/Public/plugins/jquery/jquery.min.js"></script>
+<script src="~/Public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/Public/dist/js/adminlte.min.js"></script>
+@using (Html.BeginForm("DatMua", "Giohang", FormMethod.Post))
+{
+    <section class="main clearfix bg-white ">
+        <div class="container my-3">
+            <div class="row">
+                <div class="category-title position-relative">
+                    <h1 class="text-dark ">Thanh Toán</h1>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-9">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Mã SP</th>
+                                    <th style="width:50px;">Hình</th>
+                                    <th>Tên Sản Phẩm</th>
+                                    <th>Giá</th>
+                                    <th>Số Lượng</th>
+                                    <th>Thành Tiền</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{ double tongtien = 0;}
+                                @foreach (var cart in Model)
+                                {
+                                    <tr>
+                                        <td>@cart.ProductId</td>
+                                        <td><img src="~/Public/images/products/@cart.Img" class="img-fluid card-img-top" alt="@cart.Name" /></td>
+                                        <td>@cart.Name</td>
+                                        <td>@cart.Price,$ </td>
+                                        <td>@cart.Qty</td>
+                                        <td>@cart.Amount,$</td>
+                                        <td class="text-center">
+                                            <a class="text-danger" href="@Url.Action("CartDel", "Giohang", new { productid = cart.ProductId })"><i class="fas fa-calendar-times"></i>Xoa</a>
+                                        </td>
+                                    </tr>
+                                    tongtien += cart.Amount;
+                                }
+
+                            </tbody>
+                            <tr>
+                                <td colspan="4">
+                                    <a href="@Url.Action("Index", "Site")" class="btn btn-sm btn-dark">Mua Thêm Sản Phẩm</a>
+                                    <input class="btn btn-sm btn-dark" name="CapNhat" value="Cập nhật" type="submit" />
+                                    <a href="@Url.Action("CartDelAll", "Giohang")" class="btn btn-sm btn-dark">Xoá đơn hàng</a>
+                                    <a href="~/thanh-toan" class="btn btn-sm btn-dark">Thanh Toán</a>
+                                </td>
+                                <td class="text-end">Thành Tiền</td>
+                                <td colspan="4">@tongtien,$</td>
+                            </tr>
+                        </table>
+                        <h3> THÔNG TIN KHÁCH HÀNG</h3>
+                        <div class="form-group my-2">
+                            <label>Tên Khách Hàng</label>
+                            <input name="Name" readonly type="text" value="@user.Name" class="form-control" />
+                        </div>
+                        <div class="form-group my-2">
+                            <label>Email</label>
+                            <input name="Email" readonly type="email" value="@user.Email" class="form-control" />
+                        </div>
+                        <div class="form-group my-2">
+                            <label>Số Điện Thoại</label>
+                            <input name="Phone" readonly type="number" value="@user.Phone" class="form-control" />
+                        </div>
+                        <div class="form-group my-2">
+                            <label>Địa Chỉ</label>
+                            <input name="Address" readonly type="text" value="@user.Address" class="form-control" />
+                        </div>
+
+
+                        <div class="title">
+                            <h3 class="text-center py-2">Thông tin người nhận</h3>
+                        </div>
+                        <div class="form-group my-2">
+                            <label>Tên người nhận</label>
+                            <input name="ReceiverName" class="form-control" />
+                        </div>
+                        <div class="form-group my-2">
+                            <label>Email người nhận</label>
+                            <input name="ReceiverEmail" class="form-control" />
+                        </div>
+                        <div class="form-group my-2">
+                            <label>Số điện thoại người nhận</label>
+                            <input name="ReceiverPhone" class="form-control" />
+                        </div>
+                        <div class="form-group my-2">
+                            <label>Địa chỉ người nhận</label>
+                            <input name="ReceiverAddress" class="form-control" />
+                        </div>
+                        <div class="form-group my-2">
+                            <label>Ghi chú</label>
+                            <textarea name="Note" class="form-control" rows="3"></textarea>
+
+                        </div>
+
+                        @*
+                        <div class="form-group">
+                            <label>Tên Người Nhận</label>
+                            <textarea name="ReceiverName" class="form-control" />
+                        </div>
+                        <div class="form-group ">
+            <label>Email</label>
+            <textarea name="ReceiverEmail"  class="form-control" />
+        </div>
+        <div class="form-group my-2">
+            <label>Số Điện Thoại</label>
+            <textarea name="ReceiverPhone"  class="form-control" />
+        </div>
+        <div class="form-group my-2">
+            <label>Địa Chỉ</label>
+            <textarea name="ReceiverAddress"  class="form-control" />
+        </div>
+        <div class="form-group my-2">
+            <label>Ghi Chú</label>
+            <textarea name="Note" class="form-control text-center py-2" rows="3"></textarea>
+        </div>*@
+
+                    </div>
+                    <div class="col-md-3">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th><h3> THÔNG TIN THANH TOÁN</h3></th>
+                                </tr>
+                                <tr>
+                                    <th>Tổng Tiền <p>@tongtien,$</p></th>
+                                </tr>
+                                <tr>
+                                    <th>Tiền Giảm <p>@tongtien,$</p></th>
+                                </tr>
+
+                            </thead>
+
+                        </table>
+                        <div class="container">
+                            <div class=" form-group my-xl-5 w-100">
+                                <button type="submit" class="btn btn-dark btn-outline-warning">Đặt Mua</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+}

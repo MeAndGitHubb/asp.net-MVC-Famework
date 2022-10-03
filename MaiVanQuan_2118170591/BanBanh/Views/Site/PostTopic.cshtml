@@ -1,0 +1,38 @@
+﻿@model PagedList.IPagedList<MyClass.Models.PostInfo>
+@using PagedList.Mvc;
+@{
+    var topic = ViewBag.Topic;
+}
+@{
+    ViewBag.Title = topic.Name;
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+
+}
+
+<div class="container">
+    <div class="row">
+        @foreach (var post in Model)
+        {
+            <div class="col-md-4">
+                <div class="card" style="width:100%">
+                    <img src="~/Public/images/posts/@post.Img" class="rounded mx-auto d-block" alt="...">
+
+                    <div class="card-body">
+                        <h5 class="text-center font18"><a class="text-danger" href="~/@post.Slug">@post.Title</a></h5>
+                        <h5>Posted on @post.Created_At by <span><a href="#">Admin</a></span></h5>
+                        <h5 class="text-center font18">@XString.Str_limit(post.Detail, 100)</h5>
+                        <a href="~/@post.Slug" class="form-control btn btn-info">Xem thêm</a>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="content-pagenation">
+            <button type="button" class="btn btn-dark d-md-block text-white">
+                @Html.PagedListPager(Model, page => Url.Action("Index", "Site", new { page }))</button>
+                <div class="clear"> </div>
+</div>
+    </div>
+</div>
+
+

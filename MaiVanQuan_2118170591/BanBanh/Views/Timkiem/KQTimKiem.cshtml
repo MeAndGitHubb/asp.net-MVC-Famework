@@ -1,0 +1,39 @@
+﻿@using MyClass.Models;
+@model IEnumerable<MyClass.Models.Product>
+@{
+    ViewBag.Title = "TimKiem";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+
+        @foreach (var product in Model)
+        {
+            <div class="col-md-3">
+                <div class="card-sl" style="width:100%">
+                    <div class="img-thumbnail">
+                        <img src="~/Public/images/products/@product.Img" />
+                    </div>
+
+                    <a class="card-action" href="#"><i class="fa fa-heart"></i></a>
+                    <div class="card-heading">
+                        @product.Name
+                    </div>
+
+                    <div class="card-text">
+                        @product.PriceSale
+                    </div>
+
+                    <div class="card-text">
+                        <del> @product.Price</del>
+
+                    </div>
+                    <a href=" @Url.Action("CartAdd", "Giohang",new { productId= product.Id})" class="card-button text-light bg-secondary"> Đặt Hàng</a>
+                </div>
+
+            </div>
+        }
+    </div>
+</div>
+

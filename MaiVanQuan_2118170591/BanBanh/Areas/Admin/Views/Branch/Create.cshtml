@@ -1,0 +1,79 @@
+﻿@model MyClass.Models.Branch
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ActionLink("Back to List", "Index")
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        <!-- Main content -->
+        <section class="content my-2">
+
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>Danh Sách Loại Sản Phẩm</strong>
+
+                        </div>
+                        <div class="col-md-6 text-right">
+                            @Html.ActionLink("Create New", "Create")
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="card-body">
+                    <table class="table table bordered table-striped">
+                        <thead>
+
+                        </thead>
+
+                        <tbody>
+                            <div class="form-horizontal">
+                                <h4>Branch</h4>
+                                <hr />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.NameBranch, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.NameBranch, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.NameBranch, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Create" class="btn btn-default" />
+                                    </div>
+                                </div>
+                            </div>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+            <!-- /.card -->
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <h2>Create</h2>
+
+
+    
+}
+

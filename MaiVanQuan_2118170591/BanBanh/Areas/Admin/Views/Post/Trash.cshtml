@@ -1,0 +1,103 @@
+﻿@model IEnumerable<MyClass.Models.PostInfo>
+
+@{
+    ViewBag.Title = "Thùng Rác";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+
+@section header
+{
+    <link href="~/public/Template/jquery.dataTables.min.css" rel="stylesheet" />
+}
+@section footer
+{
+    <script src="~/public/Template/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+}
+<!-- Content Wrapper. Contains page content -->
+<!-- /.content-wrapper -->
+<div class="content-wrapper py-2">
+    <!-- Content Header (Page header) -->
+    <section class="content">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><strong class="text-danger">@ViewBag.Title</strong></h3>
+                <div class="card-tools">
+                    <a class="btn btn-sm btn-success" href="@Url.Action("Index", "Post")">
+                        <i class="fas fa-angle-left" aria-hidden="true"></i>trở lại
+                    </a>
+                </div>
+            </div>
+            <div class="card-body">
+                @Html.Partial("Message")
+                <table class="table table-bordered" id="myTable">
+                    <thead>
+                        <tr class="text-center">
+                            <th class="text-center" style="width:20px">
+                                #
+                            </th>
+                            <th class="text-center" style="width:50px">
+                                Hình
+                            </th>
+                            <th>Tiêu đề bài viết</th>
+                            <th>Chủ đề bài viết</th>
+                            <th>Ngày tạo</th>
+                            <th class="text-center" style="width:180px">
+                                Chức năng
+                            </th>
+                            <th class="text-center" style="width:20px">
+                                Id
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="text-center">
+                                    <input type="checkbox" name="checkId" />
+                                </td>
+                                <td class="text-center">
+                                    <img src="~/Public/images/posts/@item.Img" class="img-fluid" alt="" />
+                                </td>
+                                <td>
+                                    @item.Title
+                                </td>
+                                <td>
+                                    @item.TopicName
+                                </td>
+                                <td>
+                                    @item.Created_At
+                                </td>
+
+                                <td class="text-center">
+                                    <a class="btn btn-sm btn-info" href="@Url.Action("Retrash", "Post", new { id = item.Id })">
+                                        <i class="fa fa-undo"></i>
+                                    </a>
+
+                                    <a class="btn btn-sm btn-danger" href="@Url.Action("Delete", "Post", new { id = item.Id })">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.Id)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+
+
+

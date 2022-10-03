@@ -1,0 +1,149 @@
+﻿@model MyClass.Models.User
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content-wrapper py-2">
+    <!-- Content Header (Page header) -->
+    <section class="content">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><strong class="text-danger">@ViewBag.Title</strong></h3>
+                <div class="card-tools">
+                    <a class="btn btn-sm btn-success" href="@Url.Action("Index", "User")">
+                        <i class="fas fa-arrow-left" aria-hidden="true"></i>trở lại
+                    </a>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Username)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Username)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Password)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Password)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Email)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Phone)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Phone)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Img)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Img)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.CountError)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.CountError)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Roles)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Roles)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Gender)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Gender)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Address)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Address)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Created_By)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Created_By)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Updated_By)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Updated_By)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Created_At)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Created_At)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Updated_At)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Updated_At)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Status)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Status)
+                        </dd>
+
+                    </dl>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>

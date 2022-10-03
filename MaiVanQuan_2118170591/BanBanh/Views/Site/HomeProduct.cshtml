@@ -1,0 +1,58 @@
+﻿@model IEnumerable<MyClass.Models.ProductInfo>
+@{
+    var category = ViewBag.Category;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Public/css/LayoutCategory.css" rel="stylesheet" />
+@if (Model.Count() != 0)
+{
+    <div class="category-title position-relative">
+        <h1 class="text-light bg-dark">@category.Name</h1>
+
+    </div>
+    <div class="container">
+        <div class="row">
+
+            @foreach (var product in Model)
+            {
+                <div class="col-md-3">
+                    <div class="card-sl" style="width:100%">
+                        <div class="img-thumbnail">
+                            <img src="~/Public/images/products/@product.Img" />
+                        </div>
+
+                        <a class="card-action" href="https://www.facebook.com/11grey/"><i class="fa fa-heart"></i></a>
+                        <div class="card-heading">
+                            <a href="~/@category.Slug" class="text-light bg-dark">@product.Name</a>
+                        </div>
+
+                        <div class="card-text">
+                            @product.PriceSale
+                        </div>
+
+                        <div class="card-text">
+                            <del> @product.Price</del>
+
+                        </div>
+                        <div class="position-relative" style="bottom: 0;">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <a href=" @Url.Action("CartAdd", "Giohang",new { productId= product.Id})" class="card-button text-light bg-secondary"> Đặt Hàng</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="~/@product.Slug" class="card-button text-light bg-secondary">Chi Tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                       
+
+                    </div>
+
+
+                </div>
+            }
+            <p><a href="~/@category.Slug" class=" bg-dark">Xem Thêm</a></p>
+        </div>
+    </div>
+}

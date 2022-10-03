@@ -1,0 +1,139 @@
+﻿
+@model MyClass.Models.Order
+
+@{
+    ViewBag.Title = "Chi tiết đơn hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="content-wrapper py-2">
+    <!-- Content Header (Page header) -->
+    <section class="content">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><strong class="text-danger">@ViewBag.Title</strong></h3>
+                <div class="card-tools">
+                    <a class="btn btn-sm btn-success" href="@Url.Action("Index", "Order")">
+                        <i class="fas fa-arrow-left" aria-hidden="true"></i>trở lại
+                    </a>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2>THÔNG TIN KHÁCH HÀNG</h2>
+                        <table class="table table-bordered">
+                            <tr>
+                                <td>Mã Khách Hàng</td>
+                                <td>@Model.UserId</td>
+                            </tr>
+                            <tr>
+                                <td>Họ Tên Khách Hàng</td>
+                                <td>@Html.Action("NameCustomer", "User", new { userid = Model.UserId })</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>@Html.Action("EmailCustomer", "User", new { userid = Model.UserId })</td>
+                            </tr>
+                            <tr>
+                                <td>Điện Thoại</td>
+                                <td>@Html.Action("PhoneCustomer", "User", new { userid = Model.UserId })</td>
+                            </tr>
+                            <tr>
+                                <td>Thông Tin Người Nhận</td>
+                                <td>@Html.Action("ReNameCustomer", "User", new { userid = Model.UserId })</td>
+                            </tr>
+                            <tr>
+                                <td>Ghi Chu</td>
+                                <td>@Html.Action("NoteCustomer", "User", new { userid = Model.UserId })</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <h2>THÔNG TIN NGƯỜI NHẬN</h2>
+                        <table class="table table-bordered">
+                            <tr>
+                                <td>Họ tên khách hàng</td>
+                                <td>@Model.ReceiverName</td>
+                            </tr>
+                            <tr>
+                                <td>Địa chỉ khách hàng</td>
+                                <td>@Model.ReceiverAddress</td>
+                            </tr>
+                            <tr>
+                                <td>Email khách hàng</td>
+                                <td>@Model.ReceiverEmail</td>
+                            </tr>
+                            <tr>
+                                <td>Số điện thoại khách hàng</td>
+                                <td>@Model.ReceiverPhone</td>
+                            </tr>
+                            <tr>
+                                <td>Ghi chú</td>
+                                <td>@Model.Note</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <h2>CHI TIẾT ĐƠN HÀNG</h2>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="text-center">
+                            <th style="width:70px">
+                                Mã sp
+                            </th>
+                            <th style="width:150px">
+                                Hình sản phẩm
+                            </th>
+                            <th>Tên sản phẩm</th>
+                            <th>Giá</th>
+                            <th>Số lượng</th>
+                            <th>Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ double tongtien = 0;}
+                        @foreach (var ct in ViewBag.ListChiTiet)
+                        {
+                        <tr class="text-center">
+                            <td>@ct.ProductId</td>
+                            <td>
+                                <img src="~/Public/images/products/@Html.Action("ProductImg", "Product", new { productid = ct.ProductId })" style="width:50px;" class="img-fluid" alt="" />
+                            </td>
+
+                            <td>@Html.Action("ProductName", "Product", new { productid = ct.ProductId })</td>
+                            <td>@string.Format("{0:0,0}", ct.Price) đ</td>
+                            <td>@ct.Number</td>
+                            <td> @string.Format("{0:0,0}", ct.Amount) đ</td>
+                        </tr>
+                            tongtien += ct.Amount;
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr class="text-center">
+                            <th colspan="4">
+                                <a class="btn btn-sm btn-info" href="@Url.Action("Destroy", "Order", new { id = Model.Id})">
+                                    Hủy đơn hàng
+                                </a>
+                                <a class="btn btn-sm btn-info" href="@Url.Action("DaXacMinh", "Order", new { id = Model.Id})">
+                                    Đã xác minh
+                                </a>
+                                <a class="btn btn-sm btn-info" href="@Url.Action("DangVanChuyen", "Order", new { id = Model.Id})">
+                                    Đang vận chuyển
+                                </a>
+                                <a class="btn btn-sm btn-info" href="@Url.Action("ThanhCong", "Order", new { id = Model.Id})">
+                                    Thành công
+                                </a>
+                            </th>
+                            <th>Tổng tiền</th>
+                            <th>@string.Format("{0:0,0}", tongtien) đ</th>
+                        </tr>
+                    </tfoot>
+
+
+                </table>
+
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>

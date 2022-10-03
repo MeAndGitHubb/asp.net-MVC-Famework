@@ -1,0 +1,35 @@
+﻿@using MyClass.Models
+@using MyClass.DAO
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+
+    string key = Request.QueryString["key"];
+    List<Product> result = new List<Product>();
+}
+
+<h2>Search @key</h2>
+@{
+    if (string.IsNullOrEmpty(key))
+    {
+        <h3> Vui lòng nhập từ khoá</h3>
+    }
+    else
+    {
+        if (key == "" || key.Length<3)
+        {
+            <h3> Vui lòng nhập từ khoá</h3>
+        }
+        else
+        {
+            result = new ProductDAO().SearchByKey(key);
+            foreach (var item in result)
+            {
+                <p> @item.Name</p>
+            }
+
+        }
+    }
+
+}
+

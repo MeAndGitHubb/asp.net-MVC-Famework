@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Trang Chủ</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Public/css/LayoutSite.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/public/plugins/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link href="~/public/dist/css/adminlte.min.css" rel="stylesheet" />
+    <link href="~/Public/css/LayoutSite.css" rel="stylesheet" />
+    <link href="~/Public/css/LayoutCategory.css" rel="stylesheet" />
+    @RenderSection("header", required: false)
+    @section header {
+
+        <link href="~/Public/css/jquery.dataTables.min.css" rel="stylesheet" />
+    }
+    @section footer {
+
+        <script src="~/Public/js/jquery.dataTables.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#myTable').DataTable();
+            });
+        </script>
+    }
+</head>
+
+<body>
+    <section class="topbar cle ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 text-left">
+                    <i class="fas fa-map-marker-alt " style="color:#f2c531"></i> 60 Man Thiện, Hiệp Phú ,Q9,TP.HCM.
+                </div>
+                <div class="col-lg-3 text-center">
+                    <i class="fas fa-mobile-alt" style="color:#f2c531"></i> (+84)948839196
+                </div>
+                <div class="col-lg-3 text-center">
+                    <i class="fa fa-clock" style="color:#f2c531"></i> Mon-Fri 6:00 - 22:00
+                </div>
+                <div class="col-lg-3 text-right"
+                    <ul class="nav nav-pills nav-fill">
+                        @if (Session["UserCustomer"].Equals(""))
+                        {
+
+                                <a href="~/dang-nhap" type="submit" class="btn btn-default">Đăng Nhập</a>
+
+                                <a href="~/dang-ky" type="submit" class="btn btn-default">Đăng Ký</a>
+
+                        }
+                        else
+                        {
+                                <a href="~/dang-xuat" type="button" class="btn btn-default">Đăng Xuất</a>
+                        }
+
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- section end tobar-->
+    <section class="header clearfix">
+        <header>
+            <!-- header inner -->
+
+            <div class="container py-2">
+                <div class="row">
+                    <div class="col-md-2 logo">
+                        <img src="~/Public/images/logo.png" alt="Logo" class="img-fluid" />
+                    </div>
+                    <div class="col-md-7">
+                            @using (Html.BeginForm("KQTimKiem", "TimKiem"))
+                            {
+                                <input class="form-control" type="text" name="sTuKhoa" placeholder="Nhập những gì bạn muốn tìm">
+                                <input type="submit" value="Tìm kiếm" class="btn btn-outline-success d-flex p-2" />
+                            }
+                        </div>
+                    <div class="col-md-3">
+                        @{
+                            int soluong = 0;
+                            if (!System.Web.HttpContext.Current.Session["MyCart"].Equals(""))
+                            {
+                                List<CartItem> listcart = (List<CartItem>)System.Web.HttpContext.Current.Session["MyCart"];
+                                soluong = listcart.Count();
+                            }
+                        }
+                        <a href="~/gio-hang" class="btn btn-dark position-relative">
+                            <i class="fas fa-cart-arrow-down"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-body">
+                                @soluong
+                            </span>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+        </header>
+    </section>
+    <!-- section end header-->
+
+    <section class="mainmenu clearfix bd-green-500">
+        <div class="container">
+            @Html.Action("MainMenu", "Module")
+
+        </div>
+
+    </section>
+    <!-- section end mainmenu-->
+
+    @RenderBody()
+
+    <!-- section end maincontent-->
+    <section class="footer clearfix bg-footer py-5" \>
+        <diw class="container">
+            <div class="row">
+                <div class="col-md-3">
+
+
+                </div>
+                <div class="col-md-3">
+                    @Html.Action("MenuFooter", "Module")
+                </div>
+                <div class="col-md-3">
+                    <h3> Địa Chỉ</h3>
+                    <a class="nav-link active text-danger" style="color:#fff" aria-current="page" href="https://www.google.com/maps/place/60%2F1+%C4%90%C6%B0%E1%BB%9Dng+Man+Thi%E1%BB%87n,+Hi%E1%BB%87p+Ph%C3%BA,+Qu%E1%BA%ADn+9,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/10.8482474,106.7871797,19.25z/data=!4m5!3m4!1s0x31752713686cfab3:0xb00e159fee156130!8m2!3d10.848207!4d106.787544"> 60 Man Thiện, Hiệp Phú , Quận 9</a>
+                
+                </div>
+                <div class="col-md-3">
+                    <h3> Mở Cửa Lúc</h3>
+                    <a class="text-danger"> Mon-Fri 6:00 - 22:00</a>
+                </div>
+            </div>
+        </diw>
+    </section>
+    <!-- section end footer-->
+    <section class="copyright clearfix bg-footer py-4">
+        <div class="container border-top border-light">
+            <div class="row">
+                <div class="col-md-6 text-light py-1">
+                    <a class="nav-link active" style="color:#fff" aria-current="page" href="https://www.facebook.com/11grey/">Facebook</a>  
+                </div>
+                <div class="col-md-6 text-light">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item ">
+                            <a class="nav-link active" style="color:#fff" aria-current="page" href="https://localhost:44355/">Trang Chu</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- section end copyright-->
+
+
+
+
+
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    @RenderSection("footer", required: false)
+</body>
+</html>

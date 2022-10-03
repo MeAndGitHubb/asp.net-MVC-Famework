@@ -1,0 +1,78 @@
+﻿@model PagedList.IPagedList<MyClass.Models.ProductInfo>
+@using PagedList.Mvc;
+@using MyClass.Models
+@using MyClass.DAO
+@{
+    ViewBag.Title = "Tất cả sản phẩm";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Public/css/LayoutCategory.css" rel="stylesheet" />
+
+
+<section class="main clearfix bg-white ">
+    <div class="container my-3">
+        <div class="row">
+            <div class="col-md-3  ">
+                <div class="container my-3">
+                    <div class="row">
+                        @Html.Action("ListCategory", "Module")
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 py-3">
+                            <div class="row">
+                                @foreach (var product in Model)
+                                {
+                                    <div class="col-md-4 py-4">
+                                        <div class="card-sl">
+                                            <div class="card-image">
+                                                <img src="~/Public/images/products/@product.Img" width="150" height="200" />
+                                            </div>
+                                            <a class="card-action" href="#"><i class="fa fa-heart"></i></a>
+                                            <div class="card-heading">
+                                                <a href="~/@product.Slug">@product.Name</a>
+                                            </div>
+
+                                            <div class="card-text">
+                                                <strike class="rupees text-danger"> @product.Price<span>đ</span> </strike><br />
+                                            </div>
+                                            <div class="card-text">
+                                                <span class="rupees text-dark"> @product.PriceSale<span>đ</span> </span>
+                                            </div>
+                                            <div class="position-relative" style="bottom: 0;">
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <a href=" @Url.Action("CartAdd", "Giohang",new { productId= product.Id})" class="card-button text-light bg-secondary"> Đặt Hàng</a>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <a href="~/@product.Slug" class="card-button text-light bg-secondary">Chi Tiết</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                <div class="content-pagenation">
+                                    <button type="button" class="btn btn-dark d-md-block text-white">@Html.PagedListPager(Model, page => Url.Action("Index", "Site", new { page }))</button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    @*hang 2*@
+
+                    @*hang 3*@
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

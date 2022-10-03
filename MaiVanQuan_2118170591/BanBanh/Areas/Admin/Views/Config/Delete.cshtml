@@ -1,0 +1,69 @@
+﻿@model MyClass.Models.Config
+
+@{
+    ViewBag.Title = "Xoá";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper my-2">
+    <!-- Content Header (Page header) -->
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong> CHI TIẾT DANH MỤC SẢN PHẨM</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+
+                            <a href="@Url.Action("Edit", "Config", new { id = Model.Id })" class="btn btn-sm btn-success  "><i class="fas fa-edit"></i> </a>
+                            <a href="@Url.Action("Index", "Config")" class="btn btn-sm btn-outline-primary"><i class="fas fa-backward"></i> Về danh sách</a>
+
+                            <button class="btn btn-sm btn-danger" type="submit"><i class="fas fa-trash-alt"></i> Xoá</button>
+
+
+
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th style="width:120px;"> Tên trường </th>
+                        <th>Nội dung </th>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Name)</td>
+                        <td>@Html.DisplayFor(model => model.Name)</td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td>@Html.DisplayNameFor(model => model.Value)</td>
+                        <td>@Html.DisplayFor(model => model.Value)</td>
+                    </tr>
+
+
+                </table>
+
+            </div>
+
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+
+
+
+

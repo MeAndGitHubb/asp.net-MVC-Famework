@@ -1,0 +1,39 @@
+D:\TAI LIEU HOC\Thực Tập Tốt Nghiệp\TTTN_MaiVanQuan\PAGE_1\MaiVanQuan_2118170591\MyClass\bin\Debug\MyClass.dll.config
+D:\TAI LIEU HOC\Thực Tập Tốt Nghiệp\TTTN_MaiVanQuan\PAGE_1\MaiVanQuan_2118170591\MyClass\bin\Debug\MyClass.dll
+D:\TAI LIEU HOC\Thực Tập Tốt Nghiệp\TTTN_MaiVanQuan\PAGE_1\MaiVanQuan_2118170591\MyClass\bin\Debug\MyClass.pdb
+D:\TAI LIEU HOC\Thực Tập Tốt Nghiệp\TTTN_MaiVanQuan\PAGE_1\MaiVanQuan_2118170591\MyClass\bin\Debug\EntityFramework.dll
+D:\TAI LIEU HOC\Thực Tập Tốt Nghiệp\TTTN_MaiVanQuan\PAGE_1\MaiVanQuan_2118170591\MyClass\bin\Debug\EntityFramework.SqlServer.dll
+D:\TAI LIEU HOC\Thực Tập Tốt Nghiệp\TTTN_MaiVanQuan\PAGE_1\MaiVanQuan_2118170591\MyClass\bin\Debug\EntityFramework.xml
+D:\TAI LIEU HOC\Thực Tập Tốt Nghiệp\TTTN_MaiVanQuan\PAGE_1\MaiVanQuan_2118170591\MyClass\bin\Debug\EntityFramework.SqlServer.xml
+D:\TAI LIEU HOC\Thực Tập Tốt Nghiệp\TTTN_MaiVanQuan\PAGE_1\MaiVanQuan_2118170591\MyClass\obj\Debug\MyClass.csproj.AssemblyReference.cache
+D:\TAI LIEU HOC\Thực Tập Tốt Nghiệp\TTTN_MaiVanQuan\PAGE_1\MaiVanQuan_2118170591\MyClass\obj\Debug\MyClass.csproj.CoreCompileInputs.cache
+D:\TAI LIEU HOC\Thực Tập Tốt Nghiệp\TTTN_MaiVanQuan\PAGE_1\MaiVanQuan_2118170591\MyClass\obj\Debug\MyClass.csproj.CopyComplete
+D:\TAI LIEU HOC\Thực Tập Tốt Nghiệp\TTTN_MaiVanQuan\PAGE_1\MaiVanQuan_2118170591\MyClass\obj\Debug\MyClass.dll
+D:\TAI LIEU HOC\Thực Tập Tốt Nghiệp\TTTN_MaiVanQuan\PAGE_1\MaiVanQuan_2118170591\MyClass\obj\Debug\MyClass.pdb
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\bin\Debug\MyClass.dll.config
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\bin\Debug\MyClass.dll
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\bin\Debug\MyClass.pdb
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\bin\Debug\EntityFramework.dll
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\bin\Debug\EntityFramework.SqlServer.dll
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\bin\Debug\PagedList.dll
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\bin\Debug\PagedList.Mvc.dll
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\bin\Debug\System.Web.WebPages.dll
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\bin\Debug\System.Web.Mvc.dll
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\bin\Debug\System.Web.Razor.dll
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\bin\Debug\System.Web.WebPages.Razor.dll
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\bin\Debug\EntityFramework.xml
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\bin\Debug\EntityFramework.SqlServer.xml
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\bin\Debug\PagedList.xml
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\bin\Debug\PagedList.Mvc.xml
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\bin\Debug\System.Web.WebPages.xml
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\bin\Debug\System.Web.Mvc.xml
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\bin\Debug\Microsoft.Web.Infrastructure.xml
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\bin\Debug\System.Web.Razor.xml
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\bin\Debug\System.Web.WebPages.Razor.xml
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\obj\Debug\MyClass.csproj.AssemblyReference.cache
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\obj\Debug\MyClass.csproj.CoreCompileInputs.cache
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\obj\Debug\MyClass.dll
+D:\HỌC\Thực Tập Tốt Nghiệp\MaiVanQuan_2118170591\MyClass\obj\Debug\MyClass.pdb

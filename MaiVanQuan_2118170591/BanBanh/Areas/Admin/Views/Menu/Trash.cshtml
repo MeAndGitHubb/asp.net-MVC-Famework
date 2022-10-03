@@ -1,0 +1,72 @@
+﻿@model IEnumerable<MyClass.Models.Menu>
+@{
+    ViewBag.Title = "Thùng rác";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm("Trash", "Menu", FormMethod.Post))
+{
+    <div class="content-wrapper py-2">
+        <!-- Content Header (Page header) -->
+        <section class="content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong class="text-danger text-uppercase">THÙNG RÁC MENU</strong>
+
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <a href="@Url.Action("Index", "Menu")" class="btn btn-sm btn-danger py-1"><i class="fas fa-backward"></i> Về danh sách</a>
+
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-body">
+                    @Html.Partial("Message")
+                    <div class="row">                
+                        <div class="col-md">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Tên menu</th>
+                                    <th>Liên kết</th>
+                                    <th>Kiểu menu</th>
+                                    <th>Vị trí</th>
+                                    <th>Chức năng</th>
+                                    <th>ID</th>
+                                </tr>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Name</td>
+                                        <td>@item.Link</td>
+                                        <td>@item.TypeMenu </td>
+                                        <td>@item.Position </td>
+                                        <td class="text-center">
+                                            <a class="btn btn-sm btn-info" href="@Url.Action("Retrash", "Menu", new { id = item.Id })">
+                                                <i class="fa fa-undo"></i>
+                                            </a>
+
+                                            <a class="btn btn-sm btn-danger" href="@Url.Action("Delete", "Menu", new { id = item.Id })">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
+
+                                        </td>
+                                        <td class="text-center">
+                                            @item.Id
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /.content -->
+    </div>
+
+}
+

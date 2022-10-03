@@ -1,0 +1,50 @@
+﻿@model MyClass.Models.Post
+
+@{
+    ViewBag.Title = "GioiThieu";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+
+
+<section class="clearfix main mt-2">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-9">
+                <div class="section group">
+                    <div class="heading">
+                        <h1 class="text-center py-2">@Model.Title</h1>
+                        <h5 class="text-danger text-center">Đăng ngày @Model.Created_At</h5>
+                        <br />
+                        <h5>@Html.Raw(Model.Detail)</h5><br />
+
+                    </div>
+                    <div class="section group">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 py-3">
+                <div class="card-sl py-4">
+                    <div class="">
+                        <h1>Bài viết khác</h1>
+                    </div>
+
+                    <ul>
+                        @foreach (var post in ViewBag.ListOther)
+                        {
+                            <div class="py-3">
+                                <a href="~/@post.Slug" class="card-button1">@XString.Str_limit(post.Title, 20)</a>
+                            </div>
+
+                        }
+                    </ul>
+                    
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+

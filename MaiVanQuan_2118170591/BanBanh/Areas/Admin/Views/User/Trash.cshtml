@@ -1,0 +1,76 @@
+﻿@model IEnumerable<MyClass.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="content-wrapper py-2">
+    <!-- Content Header (Page header) -->
+    <section class="content">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><strong class="text-danger">@ViewBag.Title</strong></h3>
+                <div class="card-tools">
+                    <a class="btn btn-sm btn-success" href="@Url.Action("Index", "User")">
+                        <i class="fas fa-angle-left" aria-hidden="true"></i>trở lại
+                    </a>
+                </div>
+            </div>
+            <div class="card-body">
+                @Html.Partial("Message")
+                <table class="table table-bordered" id="myTable">
+                    <thead>
+                        <tr class="text-center">
+                            <th class="text-center">
+                                #
+                            </th>
+                            <th>Họ và tên</th>
+                            <th>Tên đăng nhập</th>
+                            <th>Email</th>
+                            <th class="text-center" style="width:180px">
+                                chức năng
+                            </th>
+                            <th class="text-center" style="width:20px">
+                                @Html.DisplayNameFor(model => model.Id)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <input type="checkbox" value="@item.Id" name="checkid[]" />
+                                </td>
+                                <td>
+                                    @item.Name
+                                </td>
+                                <td>
+                                    @item.Username
+                                </td>
+                                <td>
+                                    @item.Email
+                                </td>
+                                <td class="text-center">
+                                    <a class="btn btn-sm btn-info" href="@Url.Action("Retrash", "User", new { id = item.Id })">
+                                        <i class="fa fa-undo"></i>
+                                    </a>
+
+                                    <a class="btn btn-sm btn-danger" href="@Url.Action("Delete", "User", new { id = item.Id })">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.Id)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>

@@ -1,0 +1,35 @@
+﻿@model MyClass.Models.NewYear
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NewYear</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Gift)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gift)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phome)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

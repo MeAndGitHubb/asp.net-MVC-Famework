@@ -1,0 +1,29 @@
+﻿@model MyClass.Models.Product
+@{
+    ViewBag.Title = Model.Name;
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+<div class="container py-2">
+    <div class="content_top">
+
+        <div class="heading img-fluid">
+            <img src="~/Public/images/products/@Model.Img" />
+        </div>
+        <div class="heading p-3">
+            <h3>@Model.Name</h3>
+            <h1>
+                Giá gốc:<strike class=" rupees text-danger line ">
+                    @string.Format("{0:0,0}", Model.Price)
+                    <strike>đ</strike>
+                </strike>
+            </h1>
+            <span class="rupees">Giá khuyến mãi: @string.Format("{0:0,0}", Model.PriceSale)<span>đ</span> </span><br />
+            <span>Chi tiết: @Html.Raw(Model.Detail)</span><br />
+            <span>Sản phẩm cùng loại:</span>
+        </div>
+        <div class="clear"></div>
+        <a href="~/" class="btn btn-dark">Quay Lại</a>
+    </div>
+</div>
+
+

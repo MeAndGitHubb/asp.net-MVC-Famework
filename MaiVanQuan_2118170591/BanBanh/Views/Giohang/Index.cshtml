@@ -1,0 +1,70 @@
+﻿@model IEnumerable<CartItem>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+<script src="~/Public/plugins/jquery/jquery.min.js"></script>
+<script src="~/Public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/Public/dist/js/adminlte.min.js"></script>
+<section class="main clearfix bg-white ">
+    <div class="container my-3">
+        <div class="row">
+            <div class="category-title position-relative">
+                <h1 class="text-dark ">Giỏ Hàng</h1>
+
+            </div>
+            @if (Model != null)
+            {
+                using (Html.BeginForm("CartUpdate", "Giohang", FormMethod.Post))
+                {     
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Mã SP</th>
+                                <th style="width:50px;">Hình</th>
+                                <th>Tên Sản Phẩm</th>
+                                <th>Giá</th>
+                                <th>Số Lượng</th>
+                                <th>Thành Tiền</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{ double tongtien = 0;}
+                            @foreach (var cart in Model)
+                            {
+                                <tr>
+                                    <td>@cart.ProductId</td>
+                                    <td><img src="~/Public/images/products/@cart.Img" class="img-fluid card-img-top" alt="@cart.Name" /></td>
+                                    <td>@cart.Name</td>
+                                    <td>@cart.Price,$ </td>
+                                    <td><input name="qty" value="@cart.Qty" type="number" min="1"</td>
+                                    <td>@cart.Amount,$</td>
+                                    <td class="text-center">
+                                        <a class="text-danger" href="@Url.Action("CartDel","Giohang",new { productid=cart.ProductId})"><i class="fas fa-calendar-times"></i>Xoa</a>
+                                    </td>
+                                </tr>
+                                tongtien += cart.Amount;
+                            }
+
+                        </tbody>
+                        <tr>
+                            <td colspan="4">
+                                <a href="@Url.Action("Index","Site")" class="btn btn-sm btn-dark">Mua Thêm Sản Phẩm</a>
+                                <input class="btn btn-sm btn-dark" name="CapNhat" value="Cập nhật" type="submit" />
+                                <a href="@Url.Action("CartDelAll","Giohang")" class="btn btn-sm btn-dark">Xoá đơn hàng</a>
+                                <a href="~/thanh-toan" class="btn btn-sm btn-dark">Thanh Toán</a>
+                            </td>
+                            <td class="text-end">Thành Tiền</td>
+                            <td colspan="4">@tongtien,$</td>
+                        </tr>
+                    </table>
+                    }
+            }
+            else
+            {
+                <h1> CHƯA CÓ SẢN PHẨM TRONG GIỎ HÀNG</h1>
+            }
+        </div>
+    </div>
+</section>

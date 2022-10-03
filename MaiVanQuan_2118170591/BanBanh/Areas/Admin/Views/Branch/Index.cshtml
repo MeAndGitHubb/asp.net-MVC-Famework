@@ -1,0 +1,68 @@
+﻿@model IEnumerable<MyClass.Models.Branch>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+    <!-- Main content -->
+    <section class="content my-2">
+
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <strong>Danh Sách Loại Sản Phẩm</strong>
+
+                    </div>
+                    <div class="col-md-6 text-right">
+                        @Html.ActionLink("Create New", "Create")
+
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="card-body">
+                <table class="table table bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NameBranch)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NameBranch)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+        <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

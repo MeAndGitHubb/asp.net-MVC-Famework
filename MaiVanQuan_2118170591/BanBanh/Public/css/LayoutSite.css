@@ -1,0 +1,85 @@
+﻿.bg-main {
+    background-color: #f8f9fa;
+}
+
+.bg-footer {
+    background-color: #d0b89e;
+}
+
+.btn-outline-success {
+    color: #3d404c;
+    border-color: #d0b89e;
+    border-radius: 40px 40px 40px 40px;
+}
+
+.form-control {
+    display: block;
+    width: 50%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #d0b89e;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0px 0px 40px 40px;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.d-flex {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+}
+
+/*-----------------------------------------------*/
+.collapse navbar-collapse {
+    background-color: #f8f9fa;
+}
+
+.choose {
+    margin-top: 90px;
+}
+
+.img_box {
+    margin-bottom: 30px;
+}
+
+.book_btn1 {
+    font-size: 17px;
+    background-color: #d0b89e;
+    color: #d0b89e;
+    font-weight: 500;
+    padding: 10px;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    display: inline-block;
+    transition: ease-in all 0.5s;
+    border-radius: 10px;
+    margin-top: 33px;
+}
+
+.img-menu {
+    border-radius: 8px;
+}
+
+div.polaroid {
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+div.container {
+    text-align: center;
+    padding: 50px 20px;
+}

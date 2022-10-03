@@ -1,0 +1,17 @@
+﻿@{
+    var menu = ViewBag.Menu;
+}
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-menu-white text-black mb-1" href="@menu.Link"  data-bs-toggle="dropdown">
+        @menu.Name
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        @foreach (var item in Model)
+        {
+            <li><a class="dropdown-item" href="@item.Link">@item.Name</a></li>
+        }
+
+
+    </ul>
+</li>

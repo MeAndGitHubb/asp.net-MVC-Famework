@@ -1,0 +1,30 @@
+﻿@model IEnumerable<MyClass.Models.PostInfo>
+@{
+    ViewBag.Title = "Post";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+
+<section class="maincontent clearfix">
+    <div class="container">
+        
+        <div class="row">
+
+            <div class="col-md-12">
+                <h1>Tất cả bài viết</h1>
+                @foreach (var post in Model)
+                {
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a href="~/@post.Slug"><img src="~/Public/images/posts/@post.Img" class="img-fluid" /></a>
+                        </div>
+                        <div class="col-md-8">
+                            <h3><a href="~/@post.Slug">@post.Title</a></h3>
+                            <p>@XString.Str_limit(post.Detail,300)</p>
+                            <div class="text-right"><a href="~/@post.Slug">Xem Thêm</div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
